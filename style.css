@@ -1,0 +1,62 @@
+.navbar {
+  background: rgba(141, 141, 141, 0.05);
+}
+
+.navbar .nav-item {
+  padding: 10px;
+}
+
+.navbar a {
+  font-size: 2.5rem;
+  color: #ed64ce;
+  padding: 2px;
+}
+
+.navbar a:hover {
+  font-size: 3rem;
+}
+
+.jumbotron {
+  background-image: url("back.jpg");
+  background-size: cover;
+  height: 100vh;
+}
+
+.container {
+  padding-top: 100px;
+  padding-bottom: 200px;
+}
+
+.container img {
+  height: 150%;
+  width: 150%;
+}
+
+.container h1 {
+  font-size: 100px;
+  text-align: center;
+  font-family: "Bangers", cursive;
+  margin-top: 4em;
+  color: #e3b3d8;
+  font-weight: bold;
+}
+
+.container-fluid {
+  height: 98vh;
+}
+
+.container-fluid h1 {
+  font-size: 120px;
+  text-align: center;
+  font-family: "Bangers", cursive;
+  color: #e3b3d8;
+  font-weight: bold;
+}
+
+.container-fluid p {
+  font-size: 24px;
+}
+
+.container-fluid img {
+  width: 90%;
+}
