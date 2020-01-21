@@ -1,25 +1,50 @@
+html,
+body {
+  scroll-behavior: smooth;
+}
+
 .navbar {
   background: rgba(141, 141, 141, 0.05);
 }
 
-.navbar .nav-item {
-  padding: 10px;
-}
-
 .navbar a {
-  font-size: 2.5rem;
+  font-size: 2rem;
   color: #ed64ce;
-  padding: 2px;
+  padding: 7px;
 }
 
-.navbar a:hover {
-  font-size: 3rem;
+.navbar-nav .active {
+  border-bottom: 4px solid yellow;
 }
 
 .jumbotron {
-  background-image: url("back.jpg");
+  background-image: url("img/back.jpg");
   background-size: cover;
   height: 100vh;
+}
+
+.line {
+  width: 70%;
+  margin: auto;
+  margin-top: 5%;
+  margin-bottom: 20%;
+  transform: rotate(-20deg);
+  border-color: #e3f308;
+}
+
+.zigzag {
+  border: none;
+  width: 70%;
+  margin: auto;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  height: 20px;
+  background: linear-gradient(135deg, #ffffff 25%, transparent 25%) -10px 0,
+    linear-gradient(225deg, #ffffff 25%, transparent 25%) -10px 0,
+    linear-gradient(315deg, #ffffff 25%, transparent 25%),
+    linear-gradient(45deg, #ffffff 25%, transparent 25%);
+  background-size: 20px 20px;
+  background-color: #fcf977;
 }
 
 .container {
@@ -36,7 +61,7 @@
   font-size: 100px;
   text-align: center;
   font-family: "Bangers", cursive;
-  margin-top: 2em;
+  margin-top: 1em;
   color: #e3b3d8;
   font-weight: bold;
 }
@@ -46,7 +71,7 @@
 }
 
 .container-fluid h1 {
-  font-size: 120px;
+  font-size: 80px;
   text-align: center;
   font-family: "Bangers", cursive;
   color: #e3b3d8;
@@ -54,7 +79,7 @@
 }
 
 .container-fluid p {
-  font-size: 24px;
+  font-size: 18px;
 }
 
 .container-fluid img {

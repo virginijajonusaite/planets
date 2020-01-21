@@ -29,36 +29,39 @@
     />
   </head>
   <body>
-    <nav
-      class="navbar transparent navbar-expand-sm navbar-inverse justify-content-center fixed-top"
-    >
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="active" href="#"><i class="fa fa-fw fa-home"></i></a>
-        </li>
-        <li class="nav-item">
-          <a href="#earth"><i class="fa fa-globe" aria-hidden="true"></i></a>
-        </li>
-        <li class="nav-item">
-          <a href="#moon"><i class="fa fa-moon-o" aria-hidden="true"></i></a>
-        </li>
-      </ul>
+    <nav class="navbar transparent navbar-expand-sm  fixed-top">
+      <div
+        class="navbar-collapse collapse justify-content-center"
+        id="navbar-collapsible"
+      >
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a href="#"><i class="fa fa-fw fa-home"></i></a>
+          </li>
+          <li class="nav-item">
+            <a href="#earth"><i class="fa fa-globe" aria-hidden="true"></i></a>
+          </li>
+          <li class="nav-item">
+            <a href="#moon"><i class="fa fa-moon-o" aria-hidden="true"></i></a>
+          </li>
+        </ul>
+      </div>
     </nav>
     <div class="jumbotron">
       <div class="container">
         <h1>Let's explore the space!</h1>
       </div>
     </div>
-
-    <div id="earth" class="container-fluid">
+    <div id="earth" class="container-fluid page">
       <div class="row">
         <div class="col-lg-6 col-md-12">
           <img
-            class="img-fluid mx-auto d-block rounded-circle float-left"
-            src="earth.jpg"
+            class="img-fluid mx-auto d-block rounded-circle float-left fadeIn"
+            src="img/earth.png"
           />
         </div>
         <div class="col-lg-6 col-md-12 my-auto">
+          <hr class="zigzag" />
           <h1>Earth</h1>
           <p class="lead">
             <mark><strong>Earth</strong></mark> is the third planet from the Sun
@@ -73,9 +76,10 @@
         </div>
       </div>
     </div>
-    <div id="moon" class="container-fluid">
+    <div id="moon" class="container-fluid page">
       <div class="row">
         <div class="col-lg-6 col-md-12 my-auto">
+          <hr class="zigzag" />
           <h1>The Moon</h1>
           <p class="lead">
             <mark><strong>The moon</strong></mark> is an astronomical body that
@@ -89,11 +93,107 @@
         </div>
         <div class="col-lg-6 col-md-12">
           <img
-            class="img-fluid mx-auto d-block rounded-circle float-left"
-            src="moon.jpg"
+            class="img-fluid mx-auto d-block rounded-circle fadeIn float-left"
+            src="img/moon.png"
           />
         </div>
       </div>
     </div>
+
+    <div id="mars" class="container-fluid page">
+      <div class="row">
+        <div class="col-lg-6 col-md-12">
+          <img
+            class="img-fluid mx-auto d-block rounded-circle float-left fadeIn"
+            src="img/mars.png"
+          />
+        </div>
+        <div class="col-lg-6 col-md-12 my-auto">
+          <hr class="zigzag" />
+          <h1>Mars</h1>
+          <p class="lead">
+            <mark><strong>Mars</strong></mark> is the fourth planet from the Sun
+            and the second-smallest planet in the Solar System after Mercury. In
+            English, Mars carries a name of the Roman god of war and is often
+            referred to as the 'Red Planet'. The latter refers to the effect of
+            the iron oxide prevalent on Mars' surface, which gives it a reddish
+            appearance distinctive among the astronomical bodies visible to the
+            naked eye. Mars is a terrestrial planet with a thin atmosphere,
+            having surface features reminiscent both of the impact craters of
+            the Moon and the valleys, deserts, and polar ice caps of Earth.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      $(window).on("load", function() {
+        $(window)
+          .scroll(function() {
+            var windowBottom = $(this).scrollTop() + $(this).innerHeight();
+            $(".fadeIn").each(function() {
+              /* Check the location of each desired element */
+              var objectBottom = $(this).offset().top + $(this).outerHeight();
+
+              /* If the element is completely within bounds of the window, fade it in */
+              if (objectBottom < windowBottom) {
+                //object comes into view (scrolling down)
+                if ($(this).css("opacity") == 0) {
+                  $(this).fadeTo(500, 1);
+                }
+              } else {
+                //object goes out of view (scrolling up)
+                if ($(this).css("opacity") == 1) {
+                  $(this).fadeTo(500, 0);
+                }
+              }
+            });
+          })
+          .scroll(); //invoke scroll-handler on page-load
+      });
+    </script>
+
+    <script>
+      $(".navbar-nav li a").on("click", function() {
+        $(".navbar-nav")
+          .find(".active")
+          .removeClass("active");
+        $(this)
+          .parent()
+          .addClass("active");
+        // add this line to specify color of active class
+        $(this)
+          .parent()
+          .find(".active");
+      });
+
+      $("body").scrollspy({
+        target: "#navbar-collapsible",
+        offset: 52
+      });
+
+      /* smooth scrolling sections */
+      $("a[href*=#]:not([href=#])").click(function() {
+        if (
+          location.pathname.replace(/^\//, "") ==
+            this.pathname.replace(/^\//, "") &&
+          location.hostname == this.hostname
+        ) {
+          var target = $(this.hash);
+          target = target.length
+            ? target
+            : $("[name=" + this.hash.slice(1) + "]");
+          if (target.length) {
+            $("html,body").animate(
+              {
+                scrollTop: target.offset().top - 50
+              },
+              1000
+            );
+            return false;
+          }
+        }
+      });
+    </script>
   </body>
 </html>
