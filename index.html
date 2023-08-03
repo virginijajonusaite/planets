@@ -47,9 +47,6 @@
               <a href="#mercury" class="dropdown-item">Mercury</a>
             </div>
           </li>
-          <li class="nav-item">
-            <a href="#test"><i class="fa fa-fw fa-question"></i></a>
-          </li>
         </ul>
       </div>
     </nav>
@@ -154,6 +151,10 @@
     </div>
     <a id="back2Top" title="Į viršų" href="#">&#128640;</a>
 
+    <footer>
+        <small>&copy; Virginija Jonušaitė</small>
+    </footer>
+
     <script>
      /*Scroll to top when arrow up clicked BEGIN*/
 $(window).scroll(function() {
@@ -172,97 +173,6 @@ $(document).ready(function() {
     });
 
 });</script>
-
-    <div
-      class="container-fluid"
-      id="test"
-      style="background-color: rgb(255, 255, 215); height: 100vh;"
-    >
-      <div class="row grade-selection">
-     <h2 id="test_status"></h2>
-
-        <script>
-          var pos = 0,
-            test,
-            test_status,
-            klausimas,
-            choice,
-            choices,
-            chA,
-            chB,
-            chC,
-            correct = 0;
-          var questions = [
-            ["Kurioje planetoje egzistuoja gyvybė?", "Saturne", "Žemėje", "Marse", "B"],
-            ["What is 20 - 9?", "7", "13", "11", "C"],
-            ["What is 7 x 3?", "21", "24", "25", "A"],
-            ["What is 8 / 2?", "10", "2", "4", "C"]
-          ];
-          function _(x) {
-            return document.getElementById(x);
-          }
-          function renderQuestion() {
-            test = _("test");
-            if (pos >= questions.length) {
-              test.innerHTML =
-                "<h2>You got " +
-                correct +
-                " of " +
-                questions.length +
-                " questions correct</h2>";
-              _("test_status").innerHTML = "Test Completed";
-              pos = 0;
-              correct = 0;
-              return false;
-            }
-            _("test_status").innerHTML =
-              pos + 1 + " klausimas " + " iš " + questions.length;
-            klausimas = questions[pos][0];
-            chA = questions[pos][1];
-            chB = questions[pos][2];
-            chC = questions[pos][3];
-            test.innerHTML = "<h2>" + klausimas + "</h2>";
-            test.innerHTML +=
-            "<div class='col-xs-2 text-xs-center' data-toggle='buttons'> <label class='btn btn-primary' for='choA'> <input  id='checkbox'  onclick='checkAnswer()'  type='checkbox' autocomplete='off' class='choice' name='choices' value='A'id='choA'>" +
-              chA +
-              "</label></div>";
-            test.innerHTML +=
-            "<div class='col-xs-2 text-xs-center' data-toggle='buttons'> <label class='btn btn-primary' for='choB'> <input id='checkbox'  onclick='checkAnswer()'  type='checkbox' class='choice' name='choices' value='B'id='choB'>" +
-              chB +
-              "</label></div>";
-            test.innerHTML +=
-            "<div class='col-xs-2 text-xs-center' data-toggle='buttons'> <label class='btn btn-primary' for='choC'> <input id='checkbox'  onclick='checkAnswer()'  type='checkbox' class='choice' name='choices' value='C'id='choC'>" +
-              chC +
-              "</label></div>";
-            test.innerHTML +=
-              "<button  class='btn btn-primary' onclick='nextAnswer()' disabled='disabled' id='choiceSubmit'>Submit Answer</button>";
-          }
-
-          function checkAnswer() {
-            choiceClicked = true;
-            $("#choiceSubmit").removeAttr("disabled");
-            $("#test label").css("background-color", "transparent");
-            if ($("#test input:checked").val() == questions[pos][4]) {
-              // correct question clicked
-              $("#test input:checked+label").css("background-color", "green");
-              correct++;
-            } else {
-              // wrong question clicked
-              $("#test input:checked+label").css("background-color", "red");
-            }
-          }
-          function nextAnswer() {
-            setTimeout(function() {
-              pos++;
-              renderQuestion();
-            }, 1000);
-          }
-          $("document").ready(function() {
-            renderQuestion();
-          });
-        </script>
-      </div>
-
     <script>
       $(window).on("load", function() {
         $(window)

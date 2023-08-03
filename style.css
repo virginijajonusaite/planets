@@ -108,6 +108,12 @@ body {
   padding-left: 400px;
 }
 
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #fcf8e3;
+}
+
 label.btn.btn-primary {
   background-color: #fcf977;
   border: 2px solid rgb(0, 0, 0);
